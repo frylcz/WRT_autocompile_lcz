@@ -1,6 +1,8 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@
+ IF(CMAKE_C_COMPILER_VERSION VERSION_GREATER 6)
 -  ADD_COMPILE_OPTIONS(-Wextra -Wformat -Werror=format-security -Werror=format-nonliteral)
 +  ADD_COMPILE_OPTIONS(-Wextra -Wformat -Werror=format-security -Wno-error=format-nonliteral)
-
+   ADD_COMPILE_OPTIONS($<$<COMPILE_LANGUAGE:C>:-Werror=implicit-function-declaration>)
+ENDIF()
